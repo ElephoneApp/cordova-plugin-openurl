@@ -6,12 +6,12 @@
   <keywords>ios,cordova,open,url</keywords>
   <license>MIT</license>
   <js-module src="www/OpenSettings.js" name="OpenSettings">
-    <clobbers target="window.openURL" />
+    <clobbers target="window.OpenSettings" />
   </js-module>
   <preference name="URL_SCHEME" />
   <platform name="ios">
     <config-file target="config.xml" parent="/*">
-      <feature name="OpenURL">
+      <feature name="OpenSettings">
         <param name="ios-package" value="OpenSettings" />
       </feature>
     </config-file>
