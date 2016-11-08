@@ -1,6 +1,6 @@
 #import <Cordova/CDV.h>
 
-@interface OpenURL : CDVPlugin {
+@interface OpenSettings : CDVPlugin {
 
 }
 

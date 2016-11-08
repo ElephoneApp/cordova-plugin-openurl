@@ -1,17 +1,11 @@
-#import "OpenURL.h"
+#import "OpenSettings.h"
 
-@implementation OpenURL
+@implementation OpenSettings
 
 - (void)open:(CDVInvokedUrlCommand *)command {
-  NSString *url = [command.arguments objectAtIndex:0];
+  NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
 
-  if (url == nil || [url length] == 0) {
-    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"No URL specified"];
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    return;
-  }
-
-  BOOL result = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+  BOOL result = [[UIApplication sharedApplication] openURL:url];
   if (!result) {
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Unable to open URL"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
